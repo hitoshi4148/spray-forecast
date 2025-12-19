@@ -2,6 +2,17 @@ from datetime import datetime, timedelta, timezone
 from config import *
 import pytz
 
+def get_weather_condition(precip_amount, cloudiness):
+    """天気条件を判定する"""
+    if precip_amount > 1.0:
+        return "雨強め"
+    elif precip_amount > 0.2:
+        return "弱い雨"
+    elif cloudiness < 20:
+        return "晴れ"
+    else:
+        return "くもり"
+
 def in_time_window(dt):
     h = dt.hour
     # 早朝: 4時以上7時未満、夕方: 16時以上19時未満
@@ -136,12 +147,16 @@ def judge(timeseries):
         inst = t["data"]["instant"]["details"]
         wind = inst.get("wind_speed", 0)
         temp = inst.get("air_temperature", 0)
+        cloudiness = inst.get("cloud_area_fraction", 0)  # 雲量（0-100%）
 
         precip = 0
         if "next_1_hours" in t["data"]:
             precip = t["data"]["next_1_hours"]["details"].get(
                 "precipitation_amount", 0
             )
+        
+        # 天気条件を計算
+        condition = get_weather_condition(precip, cloudiness)
 
         status = "GREEN"
         reason = []
@@ -184,6 +199,8 @@ def judge(timeseries):
             "wind": wind,
             "temp": temp,
             "precip": precip,
+            "cloudiness": cloudiness,
+            "condition": condition,
             "status": status,
             "reason": reason,
             "recommendations": recommendations,

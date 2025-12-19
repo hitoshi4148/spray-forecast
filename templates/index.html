@@ -210,11 +210,21 @@
                         const hasRecommendations = result.recommendations && result.recommendations.length > 0;
                         const hasReasons = result.reason && result.reason.length > 0;
                         
+                        // 天気アイコンのマッピング
+                        const weatherIcons = {
+                            "晴れ": "☀️",
+                            "くもり": "☁️",
+                            "弱い雨": "🌦️",
+                            "雨強め": "🌧️"
+                        };
+                        const weatherIcon = weatherIcons[result.condition] || "☁️";
+                        
                         let cellContent = `
                             <div class="cell-content status-${statusClass} ${!isSprayTime ? 'not-spray-time-content' : ''}">
                                 ${!isSprayTime ? '<div class="spray-time-label">散布時間帯外</div>' : ''}
-                                <div class="cell-status">
-                                    <span class="status-badge ${statusClass}">${result.status}</span>
+                                <div class="cell-weather-icon">
+                                    <span class="weather-icon">${weatherIcon}</span>
+                                    <span class="weather-condition">${result.condition}</span>
                                 </div>
                                 <div class="cell-weather">
                                     <div class="weather-item">風: ${result.wind.toFixed(1)}m/s</div>
