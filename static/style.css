@@ -35,8 +35,14 @@ header h1 {
 }
 
 .subtitle {
-    color: #7f8c8d;
-    font-size: 0.95em;
+    color: #2c3e50;
+    font-size: 1.2em;
+    font-weight: 600;
+    background-color: #f0f4ff;
+    padding: 8px 15px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-top: 5px;
 }
 
 .location-input {
@@ -54,7 +60,7 @@ header h1 {
 
 .input-group {
     display: grid;
-    grid-template-columns: auto 1fr auto 1fr auto;
+    grid-template-columns: auto 1fr auto 1fr;
     gap: 10px;
     align-items: center;
     margin-bottom: 10px;
@@ -102,6 +108,11 @@ button:active {
 
 button.secondary {
     background: #6c757d;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
     margin-top: 10px;
 }
 
@@ -109,9 +120,6 @@ button.secondary:hover {
     box-shadow: 0 5px 15px rgba(108, 117, 125, 0.4);
 }
 
-#search-btn {
-    grid-column: 5;
-}
 
 .help-text {
     font-size: 0.8em;
@@ -203,10 +211,11 @@ button.secondary:hover {
 
 .date-header {
     width: 30%;
+    font-size: calc(0.9em + 2pt);
 }
 
 .date-sub {
-    font-size: 0.8em;
+    font-size: calc(0.8em + 2pt);
     opacity: 0.9;
     font-weight: 400;
 }
@@ -225,7 +234,7 @@ button.secondary:hover {
     font-weight: 600;
     background: #f8f9fa;
     border-right: 2px solid #ddd;
-    font-size: 0.9em;
+    font-size: calc(0.9em + 2pt);
     color: #2c3e50;
 }
 
@@ -264,16 +273,16 @@ button.secondary:hover {
 .spray-time-label {
     font-size: 0.75em;
     color: #6c757d;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
     font-weight: 600;
     text-align: center;
-    padding: 2px;
+    padding: 1px;
     background-color: #f0f0f0;
     border-radius: 3px;
 }
 
 .cell-content {
-    padding: 6px;
+    padding: 2px;
     border-radius: 4px;
     font-size: 0.85em;
 }
@@ -294,7 +303,7 @@ button.secondary:hover {
 }
 
 .cell-status {
-    margin-bottom: 6px;
+    margin-bottom: 2px;
     text-align: center;
 }
 
@@ -308,19 +317,19 @@ button.secondary:hover {
     align-items: center;
     justify-content: center;
     gap: 5px;
-    margin-bottom: 6px;
-    padding: 4px;
+    margin-bottom: 1px;
+    padding: 1px;
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 4px;
 }
 
 .weather-icon {
-    font-size: 1.5em;
+    font-size: 3em;
     line-height: 1;
 }
 
 .weather-condition {
-    font-size: 0.85em;
+    font-size: calc(0.85em + 4pt);
     font-weight: 600;
     color: #2c3e50;
 }
@@ -328,24 +337,24 @@ button.secondary:hover {
 .cell-weather {
     display: flex;
     flex-direction: column;
-    gap: 3px;
-    margin-bottom: 6px;
+    gap: 0px;
+    margin-bottom: 1px;
     font-size: 0.8em;
 }
 
 .weather-item {
-    padding: 2px 0;
+    padding: 0px;
 }
 
 .cell-reason,
 .cell-warning,
 .cell-recommendation,
 .cell-ok {
-    font-size: 0.75em;
-    padding: 4px;
-    margin-top: 4px;
+    font-size: calc(0.75em + 2pt);
+    padding: 1px 3px;
+    margin-top: 1px;
     border-radius: 3px;
-    line-height: 1.4;
+    line-height: 1.1;
     word-wrap: break-word;
 }
 
