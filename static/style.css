@@ -38,6 +38,27 @@ body {
     vertical-align: bottom;
 }
 
+.banner-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.banner-row a {
+    display: inline-block;
+    line-height: 0;
+}
+
+.banner-row img {
+    width: 300px;
+    height: 100px;
+    max-width: none;
+    vertical-align: bottom;
+}
+
 header {
     text-align: center;
     margin-bottom: 20px;
