@@ -6,7 +6,7 @@ def fetch_met(lat, lon):
         f"?lat={lat}&lon={lon}"
     )
     headers = {
-        "User-Agent": "spray-forecast/0.1 (contact: you@example.com)"
+        "User-Agent": "spray-forecast/0.1 (contact: hitoshi.yoshinobu@gmail.com)"
     }
     r = requests.get(url, headers=headers, timeout=10)
     r.raise_for_status()
